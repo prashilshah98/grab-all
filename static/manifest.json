@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Grab All",
+  "version": "0.1.4",
+  "description": "Download every file from a file-host folder, as one zip or one by one.",
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "bulk-downloader@prashil.local",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  },
+  "permissions": [
+    "downloads",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "host_permissions": [
+    "https://filester.me/*",
+    "https://*.cdn.cr/*",
+    "https://app.koofr.net/*",
+    "https://gofile.io/*",
+    "https://*.gofile.io/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://filester.me/f/*",
+        "https://app.koofr.net/links/*",
+        "https://gofile.io/*",
+        "https://www.gofile.io/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

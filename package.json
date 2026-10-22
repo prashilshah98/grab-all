@@ -1,0 +1,25 @@
+{
+  "name": "grab-all",
+  "version": "0.1.4",
+  "private": true,
+  "description": "Firefox extension: download every file from a file-host folder as one zip or as a queue.",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "web-ext lint --source-dir dist",
+    "start": "web-ext run --source-dir dist --start-url https://filester.me/f/f116cf63edb512d7 --start-url https://k00.fr/spjaog3b --start-url https://gofile.io/d/PSpVfkGo",
+    "start:android": "web-ext run --source-dir dist --target firefox-android",
+    "package": "web-ext build --source-dir dist --artifacts-dir artifacts --overwrite-dest",
+    "sign": "npm run build && web-ext sign --source-dir dist --channel unlisted --artifacts-dir artifacts"
+  },
+  "dependencies": {
+    "fflate": "^0.8.3"
+  },
+  "devDependencies": {
+    "@types/firefox-webext-browser": "^143.0.1",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "web-ext": "^10.8.0"
+  }
+}
