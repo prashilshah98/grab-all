@@ -30,7 +30,10 @@ The extension is signed through AMO as an **unlisted** add-on, so it isn't searc
 
 1. Get the signed `.xpi` (made with `npm run sign`, see below).
 2. **Desktop:** open `about:addons` → gear icon → *Install Add-on From File…*
-3. **Android:** copy the `.xpi` to the phone and open it in Firefox.
+3. **Android:** Firefox for Android only installs add-ons from a file after you turn on its hidden debug menu:
+   1. Download the `.xpi` to the phone.
+   2. In Firefox, open **Settings → About Firefox** and tap the Firefox logo **5 times**, until it says the debug menu is enabled.
+   3. Go back to **Settings**. Near the bottom, tap **Install add-on from file** and pick the `.xpi`.
 
 ## Development
 
